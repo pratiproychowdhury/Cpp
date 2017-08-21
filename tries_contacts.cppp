@@ -40,14 +40,10 @@ class Node {
 void add(Node &node, string contact) {
 
     int which = contact[0]-'a';
-    
-    //node.number++;
-    
+
     if (contact[0] == '\0')
         return;
-    
-    //cout << "which is " << which << endl;
-        
+       
     if (node.child[which] == NULL) {
         node.child[which] = new Node();
     }
