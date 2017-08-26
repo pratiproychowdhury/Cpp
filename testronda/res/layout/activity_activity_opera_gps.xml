@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".ExecutaRonda" >
+            
+	<TextView android:id="@+id/ponto_ronda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_activity_executa_ronda" />
+                
+    <Button
+        android:id="@+id/btponto_ronda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="testGPSlocation"
+        android:text="@string/button_proximoPonto" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="264dp"
+        android:onClick="descarregaRota"
+        android:text="@string/button_descarregaRota" />
+
+    <TextView
+        android:id="@+id/edLatitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.73"
+        android:ems="10"
+        android:hint="Latitude" />
+    
+    <TextView
+        android:id="@+id/edLongitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Longitude" />
+          
+</LinearLayout>
