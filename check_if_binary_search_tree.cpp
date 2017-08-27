@@ -18,11 +18,7 @@ bool checksub(Node* root, int minimum, int maximum) {
                 return false;
            if (!((root->left)->data > minimum))
                return false;
-           int newmax;
-           if (root->data < maximum)
-              newmax = root->data;
-           else newmax = maximum;
-           left_side = checksub(root->left, minimum, newmax);
+           left_side = checksub(root->left, minimum, min(root->data, maximum));
            if (!left_side)
                return false;
        }
@@ -33,11 +29,7 @@ bool checksub(Node* root, int minimum, int maximum) {
                 return false;
            if (!((root->right)->data < maximum))
                return false;
-           int newmin;
-           if (root->data > minimum)
-              newmin = root->data;
-           else newmin = minimum;
-           right_side = checksub(root->right, newmin, maximum);
+           right_side = checksub(root->right, max(minimum, root->data), maximum);
            if (!right_side)
                return false;
        }      
@@ -46,8 +38,8 @@ bool checksub(Node* root, int minimum, int maximum) {
     
 }
 
-   bool checkBST(Node* root) {
+
+bool checkBST(Node* root) {
        
     return checksub(root, -30000 , 30000 );   
-
-   }
+}
