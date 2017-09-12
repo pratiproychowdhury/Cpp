@@ -1,7 +1,5 @@
 #include <vector>
-
 #include <iostream>
-
 using namespace std;
 
 vector<int> array_left_rotation(vector<int> a, int n, int k) {
@@ -9,8 +7,6 @@ vector<int> array_left_rotation(vector<int> a, int n, int k) {
     int temp;
     int keffective = k % n;
     vector<int> rotated(n);
-    
-
     
     for (int i=0; i<n; i++) {
         rotated[i] = a[(i+keffective) % n];
@@ -24,7 +20,6 @@ vector<int> array_left_rotation(vector<int> a, int n, int k) {
         a[n-1] = temp;
     }
     */
-    
     return rotated;
 }
 
