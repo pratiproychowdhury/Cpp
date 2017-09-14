@@ -46,6 +46,8 @@ Complexity:
 
 expected worst-case time complexity is O(N*log(N));
 expected worst-case space complexity is O(N), beyond input storage (not counting the storage required for input arguments).
+
+THIS SOLUTION IS O(N^2)!
 */
 
 vector<int> solution(vector<int> &A) {
