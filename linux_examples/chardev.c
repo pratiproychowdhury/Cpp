@@ -145,7 +145,7 @@ static void device_release(struct inode *inode,
 #endif
  
   /* We're now ready for our next caller */
-  Device_Open --;
+  Device_Open--;
 
   MOD_DEC_USE_COUNT;
 
@@ -335,7 +335,7 @@ int device_ioctl(
  * created. Since a pointer to this structure is kept in 
  * the devices table, it can't be local to
  * init_module. NULL is for unimplemented functions. */
-struct file_operations Fops = {
+struct file_operations chardev_fops = {
   NULL,   /* seek */
   device_read, 
   device_write,
@@ -359,7 +359,7 @@ int init_module()
   /* Register the character device (atleast try) */
   ret_val = module_register_chrdev(MAJOR_NUM, 
                                  DEVICE_NAME,
-                                 &Fops);
+                                 &chardev_fops);
 
   /* Negative values signify an error */
   if (ret_val < 0) {
@@ -370,7 +370,7 @@ int init_module()
   }
 
   printk ("%s The major device number is %d.\n",
-          "Registeration is a success", 
+          "Registration is a success", 
           MAJOR_NUM);
   printk ("If you want to talk to the device driver,\n");
   printk ("you'll have to create a device file. \n");
