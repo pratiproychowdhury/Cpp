@@ -1,7 +1,8 @@
 /*
 You are given a non-empty zero-indexed array A consisting of N integers.
 
-For each number A[i] such that 0 ≤ i < N, we want to count the number of elements of the array that are not the divisors of A[i]. We say that these elements are non-divisors.
+For each number A[i] such that 0 ≤ i < N, we want to count the number of elements of the array that are not the divisors of A[i]. 
+We say that these elements are non-divisors.
 
 For example, consider integer N = 5 and array A such that:
 
@@ -21,7 +22,8 @@ Write a function:
 
 vector<int> solution(vector<int> &A);
 
-that, given a non-empty zero-indexed array A consisting of N integers, returns a sequence of integers representing the amount of non-divisors.
+that, given a non-empty zero-indexed array A consisting of N integers, returns a sequence of integers representing the amount of 
+non-divisors.
 
 The sequence should be returned as:
 
