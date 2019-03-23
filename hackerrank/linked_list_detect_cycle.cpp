@@ -8,9 +8,9 @@ A Node is defined as:
     }
 */
 
+/* An better way to solve this would be to add the address of the node to a set, and check for each visited node if it is 
+already in the set. */
 bool has_cycle(Node* head) {
-    // Complete this function
-    // Do not write the main method
     int visited = 0;
     
     if (head == NULL)
