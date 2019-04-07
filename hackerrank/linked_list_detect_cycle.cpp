@@ -8,7 +8,7 @@ A Node is defined as:
     }
 */
 
-/* An better way to solve this would be to add the address of the node to a set, and check for each visited node if it is 
+/* An better way to solve this would be to add the address of the node to a set or hash, and check for each visited node if it is 
 already in the set. */
 bool has_cycle(Node* head) {
     int visited = 0;
