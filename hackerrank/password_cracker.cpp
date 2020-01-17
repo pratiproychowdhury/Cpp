@@ -85,7 +85,18 @@ string ltrim(const string &);
 string rtrim(const string &);
 vector<string> split(const string &);
 
-bool recurse(set<string> passwords, string& answer, string loginAttempt) {
+struct classcomp {
+    bool operator() (const string& a, const string& b) const {
+        if (a.length() < b.length())
+            return false;
+        if (a.length() > b.length())
+            return true;
+        return (a < b);
+
+    }
+};
+
+bool recurse(set<string, classcomp> passwords, string& answer, string loginAttempt) {
 
     for (string a : passwords) {
         if (!a.compare( loginAttempt.substr(0,a.length())) ) {
@@ -107,7 +118,7 @@ bool recurse(set<string> passwords, string& answer, string loginAttempt) {
 
 string passwordCracker(vector<string> pass, string loginAttempt) {
 
-    set<string> passwords;
+    set<string, classcomp> passwords;
     for (string a : pass)
         passwords.emplace(a);
 
