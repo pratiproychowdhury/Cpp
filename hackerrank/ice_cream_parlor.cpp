@@ -88,10 +88,13 @@ dollars. There are four flavors available that day and flavors and have a total 
 */
 
 #include <bits/stdc++.h>
+#include <algorithm> 
 
 using namespace std;
 
 vector<string> split_string(string);
+
+
 
 void whatFlavors(vector<int> cost, int money) {
 
@@ -113,6 +116,28 @@ void whatFlavors(vector<int> cost, int money) {
         }
     }
 }
+
+// THE SECOND SOLUTION; THIS ONE RETURNS A VECTOR WITH THE INDICES OF THE FLAVORS
+
+vector<int> icecreamParlor(int m, vector<int> arr) {
+
+    for (vector<int>::iterator ptr=arr.begin(); ptr!=arr.end(); ptr++) {
+        int rest = m - *ptr;
+        vector<int>::iterator next = ptr+1;
+        vector<int>::iterator theother = find(next, arr.end(), rest);
+        if (theother != arr.end()) {
+            vector<int> solution = { distance(arr.begin(), ptr)+1, distance(arr.begin(), theother)+1 };
+            return solution;
+        }
+
+    }
+    return vector<int> ();
+}
+
+
+
+
+
 
 int main()
 {
