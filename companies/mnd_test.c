@@ -1,3 +1,5 @@
+// Without the flush, the "Parent started: " is printed by both the parent and child
+
 /** @file test.c
  *
  * A small example of daemon code.  It forks off
