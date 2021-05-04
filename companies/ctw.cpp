@@ -16,7 +16,7 @@ string letterstocount = 'AEIOUX'
 void countVowels(string s)
 {
 	map<char,int> letters;
-	for (auto& a : s)
+	for (char const & a : s)
 	  if (letterstocount.find(a) != letterstocount.end())
 	    letters[a]++;
 	for (auto& a : letterstocount)
