@@ -16,7 +16,8 @@ int solution(vector<int> &A) {
     priority_queue<int, vector<int>, greater<int> > minheap;
     
     for (auto& x : A)
-        minheap.emplace(x);
+        if (x > 0)
+            minheap.emplace(x);
 
     for (int z = 1; z < 100000; z++) {
         if (minheap.empty())
