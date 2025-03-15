@@ -10,7 +10,7 @@ void cashConverter(int g,int s, int b)
 
 
 
-string letterstocount = 'AEIOUX'
+string letterstocount = 'AEIOU'
 
 // imprimir o numero de vogais, .ie, AAEIOU imprime 2,1,1,1,1
 void countVowels(string s)
