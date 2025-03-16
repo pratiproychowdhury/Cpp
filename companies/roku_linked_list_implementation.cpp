@@ -40,8 +40,7 @@ public:
   }
 
   // Function to check if a list is empty
-  bool empty() const 
-  {
+  bool empty() const {
     if (items)
       return false;
     else
@@ -49,14 +48,12 @@ public:
   }
 
   // Return number of elements in the list
-  size_t size() const
-  {
+  size_t size() const {
     return items;
   }
 
   // Clear all elements from list
-  void clear()
-  {
+  void clear() {
     while (head) {
       Node* next = head->next;
       delete head;
@@ -69,16 +66,14 @@ public:
 
   // Get reference to the current item in the list
   // Behavior is undefined for empty list
-  item_t& current()
-  {
+  item_t& current() {
     return currptr->item;
   }
 
   // Returns pointer to first item in list
   //     or empty_ptr
   // Relocates current to beginning of list
-  const ptr_t first()
-  {
+  const ptr_t first() {
     if (!head)
       return empty_ptr();
     else {
@@ -91,8 +86,7 @@ public:
   // Returns pointer to last item in list
   //     or empty_ptr
   // Relocates current to end of list
-  const ptr_t last()
-  {
+  const ptr_t last() {
     if (!tail)
       return empty_ptr();
     else {
@@ -105,16 +99,14 @@ public:
   // Get the next / previous item from the list and set as current
   // Returns pointer to current item
   //   or empty_ptr if operation be invalid
-  const ptr_t next()
-  {
+  const ptr_t next() {
     if ((!currptr) || (!currptr->next))
       return empty_ptr();
     currptr = currptr->next;
     return std::make_shared<item_t>(currptr->item);
   }
 
-  const ptr_t prev()
-  {
+  const ptr_t prev() {
     if ((!currptr) || (!currptr->prev))
       return empty_ptr();
     currptr = currptr->prev;
@@ -123,8 +115,7 @@ public:
 
   // Append an item to the end of the list
   // Does not modify current position
-  void push_back(const item_t& item)
-  {
+  void push_back(const item_t& item) {
     if (!items) {
       Node* new_item = new Node;
       new_item->item = item;
@@ -145,8 +136,7 @@ public:
 
   // Prepend an item to the beginning of the list
   // Does not modify current position
-  void push_front(const item_t& item)
-  {
+  void push_front(const item_t& item) {
     if (!items) {
       Node* new_item = new Node;
       new_item->item = item;
@@ -168,8 +158,7 @@ public:
   // Insert item before current item and set to current
   // Returns pointer to previous current item
   //     or empty_ptr if empty list
-  const ptr_t insert(const item_t& item)
-  {
+  const ptr_t insert(const item_t& item) {
     if (!items) {
       Node* new_item = new Node;
       new_item->item = item;
@@ -201,8 +190,7 @@ public:
   // Append item after current item and set to current
   // Returns pointer to previous current item
   //     or empty_ptr if empty list
-  const ptr_t append(const item_t& item)
-  {
+  const ptr_t append(const item_t& item) {
     if (!items) {
       Node* new_item = new Node;
       new_item->item = item;
@@ -236,8 +224,7 @@ public:
   // no-op if empty list
   // Returns pointer to removed (formerly current) item
   //     or empty_ptr if empty list
-  const ptr_t removeCurrent()
-  {
+  const ptr_t removeCurrent() {
     if (!items) {
       return empty_ptr();
     }
@@ -272,8 +259,7 @@ using std::cout;
 using std::cerr;
 
 // NOTE - is_equal() relocates current() to end of list
-bool is_equal(linked_list_t& ll, const std::initializer_list<int>& vals)
-{
+bool is_equal(linked_list_t& ll, const std::initializer_list<int>& vals) {
     if (ll.size() != vals.size())
         return false;
 
@@ -290,8 +276,7 @@ bool is_equal(linked_list_t& ll, const std::initializer_list<int>& vals)
     return true;
 }
 
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
         linked_list_t ll;
     cerr << "Test empty...";
     assert(ll.empty());
