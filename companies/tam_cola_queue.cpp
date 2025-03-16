@@ -29,16 +29,16 @@ class Cola {
         void encolar(Object dato) {
             if (size==capacity) {
                 capacity += 1000;
-                cola.reserve(capacity);
+                cola->reserve(capacity);
             }
-            cola.push_back(dato);
+            cola->push_back(dato);
             ++size;
         }
         
         Object desencolar() {
             --size;
-            Object thisObject = cola.front();
-            cola.pop_front();
+            Object thisObject = cola->front();
+            cola->pop_front();
             return thisObject;
         }
         
