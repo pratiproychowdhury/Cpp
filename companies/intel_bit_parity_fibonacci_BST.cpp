@@ -10,7 +10,6 @@ int parity(uint64_t input) {
   }
   
   return counter & mask;
-
 }
 
 
@@ -63,27 +62,22 @@ class BST {
 
 template<class T>
 BST<T>::BST() {
-
   std::shared_ptr<Node *> root(new Node());
 }
 
 template<class T>
 BST<T>::~BST() {
-
 }
 
 
 template<class T>
 BST<T>::InsertNode(T data) {
-
   std::shared_ptr<Node *> ptr = ;
-
 }
 
 
 template<class T>
 BST<T>::SearchNode(T data) {
-
   Node* ptr = root;
   
   if (!ptr)
