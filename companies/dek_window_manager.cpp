@@ -12,21 +12,18 @@ public:
         windows.reserve(1000000);
     
     }
-    void open(const std::string windowName)
-    {
+    void open(const std::string windowName) {
         windows.push_back(windowName);
     }
 
-    void close(const std::string windowName)
-    {
+    void close(const std::string windowName) {
         std::vector<std::string>::iterator ptr = std::find(windows.begin(), windows.end(), windowName);
         // windows.erase(ptr);
         *ptr = "";
       
     }
 
-    std::string getTopWindow()
-    {
+    std::string getTopWindow() {
         while (windows.back() == "")
           windows.pop_back();
         return windows.back(); 
@@ -34,8 +31,7 @@ public:
 };
 
 #ifndef RunTests
-int main()
-{
+int main() {
     WindowManager wm;
     wm.open("Calculator");
     wm.open("Browser");
