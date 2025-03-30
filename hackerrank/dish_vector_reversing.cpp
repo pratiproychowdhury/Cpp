@@ -164,9 +164,11 @@ vector<int> waiter(vector<int> number, int q) {
     for (int round=0; round<q; round++) {
         while (!check_prime(prime))
             prime++;
-        
+
+        function<bool(int)> divtest = bind(IsDivisible, prime, placeholders::_1);
+     
         for (auto i : number) {
-            if (!(i%prime))
+            if (divtest(i))
                 answers.emplace_back(i);
             else b.emplace_back(i);
         }
