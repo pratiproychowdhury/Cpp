@@ -1,0 +1,55 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Metadata": {},
+    "Resources": {
+        "ValidatedReceipts": {
+            "Type": "AWS::DynamoDB::Table",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "AttributeDefinitions": [
+                    {
+                        "AttributeName": "TransactionId",
+                        "AttributeType": "N"
+                    }
+                ],
+                "KeySchema": [
+                    {
+                        "AttributeName": "TransactionId",
+                        "KeyType": "HASH"
+                    }
+                ],
+                "ProvisionedThroughput": {
+                    "ReadCapacityUnits": "5",
+                    "WriteCapacityUnits": "5"
+                }
+            },
+            "Metadata": {}
+        },
+        "ValidationServer": {
+            "Type": "AWS::EC2::Instance",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+                "ImageId" : "ami-0678bcc86fd7b0aef"
+            },
+            "Metadata": {}
+        },
+        "ReceiptInput": {
+            "Type": "AWS::SQS::Queue",
+            "DeletionPolicy": "Retain",
+            "Properties": {},
+            "Metadata": {}
+        },
+        "PostQueue": {
+            "Type": "AWS::SQS::Queue",
+            "DeletionPolicy": "Retain",
+            "Properties": {},
+            "Metadata": {}
+        },
+        "AlternatePostQueue": {
+            "Type": "AWS::SQS::Queue",
+            "DeletionPolicy": "Retain",
+            "Properties": {},
+            "Metadata": {}
+        }
+    }
+}
