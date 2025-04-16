@@ -50,7 +50,7 @@ template<class T>
 class BST {
 
   private:
-    Node* root;
+    Node<T>* root;
     
   public:
     BST();
@@ -62,7 +62,7 @@ class BST {
 
 template<class T>
 BST<T>::BST() {
-  std::shared_ptr<Node *> root(new Node());
+  std::shared_ptr<Node<T> *> root(new Node<T>());
 }
 
 template<class T>
@@ -71,14 +71,14 @@ BST<T>::~BST() {
 
 
 template<class T>
-BST<T>::InsertNode(T data) {
-  std::shared_ptr<Node *> ptr = ;
+int BST<T>::InsertNode(T data) {
+  std::shared_ptr<Node<T> *> ptr;
 }
 
 
 template<class T>
-BST<T>::SearchNode(T data) {
-  Node* ptr = root;
+bool BST<T>::SearchNode(T data) {
+  Node<T> * ptr = root;
   
   if (!ptr)
     return -1;
@@ -98,4 +98,3 @@ BST<T>::SearchNode(T data) {
   else
     return -1;
 }
-
