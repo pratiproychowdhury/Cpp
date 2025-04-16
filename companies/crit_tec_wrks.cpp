@@ -15,7 +15,7 @@ void countVowels(string s)
 {
 	string letterstocount = "AEIOU";
 	map<char,int> letters;
-	for (char const & a : s)
+	for (const char & a : s)
 		if (letterstocount.find(a) != string::npos)
 			letters[a]++;
 	for (auto& a : letterstocount)
