@@ -11,22 +11,26 @@
  */
 
 class Person {
+public:    
+	string name;
+	vector<Person *> role;
 };
  
 class Manager : public Person {
 public:
 	virtual void manageEmployees() {};
-	vector<roles> role;
+	vector<Person> subordinates;
 };
  
 class Trainer : public Person {
+    string sport;
 public:
-	virtual void coachMembers()= 0;
+	virtual void coachMembers() {};
 };
  
 class Alex : public Manager, public Trainer {
 public:
-	void manageEmployees() {
+	void manageEmployees() override {
     		//implementation goes here
 	}
  
@@ -37,21 +41,20 @@ public:
  
 class Sam : public Trainer { 
 public:
-void coachMembers() override {
-    		//implementation goes here
-}
+	void coachMembers() override {
+	    	//implementation goes here
+	}
 };
 	 
 int main() {
-	auto alex = new Person();
-	alex.role.push_back(new Manager());
-	alex.role.push_back(new Trainer());
+	auto people = new Person();
+	people->role.push_back(new Manager());
+	people->role.push_back(new Trainer());
 
-
-    auto alex = Alex();
-    alex.manageEmployees();
-    alex.coachMembers();
-        
-    auto sam = Sam();
-    sam.coachMembers();
+	auto alex = Alex();
+	alex.manageEmployees();
+	alex.coachMembers();
+	
+	auto sam = Sam();
+	sam.coachMembers();
 }
